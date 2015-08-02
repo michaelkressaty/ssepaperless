@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<h1>{{ department.DepartmentName }}</h1>
+<h2>{{ advisor.AdvisorName }}</h2>
+<ul>
+     <li><a href="/Organizer/{{department.id}}/Advisor/{{advisor.id}}/Students/">Students</a></li>
+</ul>
+<ul>
+     <li><a href="/Organizer/{{department.id}}/Advisor/{{advisor.id}}/Degrees/">Degrees	</a></li>
+</ul>

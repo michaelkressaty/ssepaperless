@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<h1>{{ department.DepartmentName }}</h1>
+<h3>Department Advisors</h3>
+<ul>
+{% for advisor in department.advisor_set.all %}
+     <li><a href="/Organizer/{{department.id}}/Advisor/{{ advisor.id }}/">{{ advisor.AdvisorName }}</a></li>
+{% endfor %}
+</ul>
+<h3>{{ department.DepartmentName }} Degrees Offered</h3>
+<ul>
+{% for degree in department.degree_set.all %}
+     <li><a href="/Organizer/{{department.id}}/Degree/{{degree.id}}/">{{ degree.DegreeName }}</a></li>
+{% endfor %}
+</ul>
+
+<h3>{{ department.DepartmentName }} Certificates Offered</h3>
+<ul>
+{% for certificate in department.certificate_set.all %}
+     <li><a href="/Organizer/{{department.id}}/Certificate/{{certificate.id}}/">{{ certificate.CertificateName }}</a></li>
+{% endfor %}
+</ul>

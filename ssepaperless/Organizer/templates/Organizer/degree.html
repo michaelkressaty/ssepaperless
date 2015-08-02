@@ -1,0 +1,14 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<h1>{{ department.DepartmentName }}</h1>
+<h2>{{ degree.DegreeName }}</h2>
+<ul>
+{% for degree_core_course_structure in degree.degree_core_course_structure_set.all %}
+    <li><a href= "/Organizer/Degree/{{degree.id}}/Courses/{{degree_core_course_structure.id}}">{{degree_core_course_structure.Degree_Core_Course_Structure_ID}}</li>
+{% endfor %}
+</ul>

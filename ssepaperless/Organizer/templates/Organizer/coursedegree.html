@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<h1>{{ department.DepartmentName }}</h1>
+<h2>{{ core_course_structure.Degree_Core_Course_Structure_ID }}</h2>
+<ul>
+<table style="width:100%">
+	<caption>Required Courses</caption>
+	<tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credits</th>
+    </tr>
+	{% for course in core_course_structure.course_set.all %}
+    <tr>
+    	<td>{{course.CourseID}}</td>
+    	<td>{{course.CourseName}}</td>
+    	<td>{{course.Credits}}</td>
+    </tr>
+{% endfor %} 
+
+<table style="width:100%">
+	<caption>Electives: Choose {{core_course_structure.degree_elective_course_structure.Choose}}</caption>
+    <col width="25">
+    <col width="200">
+	<col width="10">
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credits</th>
+    </tr>
+	{% for course in core_course_structure.degree_elective_course_structure.course_set.all %}
+    <tr>
+    	<td>{{course.CourseID}}</td>
+    	<td>{{course.CourseName}}</td>
+    	<td>{{course.Credits}}</td>
+    </tr>
+    {% endfor %}
+	
+</ul>

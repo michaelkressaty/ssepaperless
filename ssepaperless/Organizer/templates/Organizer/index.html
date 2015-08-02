@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+
+<h2>{{ 'SSE Departments' }}</h2>
+{% if department_list %}
+    <ul>
+    {% for department in department_list %}
+        <li><a href="/Organizer/{{ department.id }}/">{{ department.DepartmentName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Departments are available.</p>
+{% endif %}

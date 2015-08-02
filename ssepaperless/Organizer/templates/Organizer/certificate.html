@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<h1>{{ department.DepartmentName }}</h1>
+<h4>{{ certificate.CertificateName }}</h4>
+<ul>
+<table style="width:100%">
+	<caption>Required Courses</caption>
+	<tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credits</th>
+    </tr>
+	{% for course in certificate.course_set.all %}
+    <tr>
+    	<td>{{course.CourseID}}</td>
+    	<td>{{course.CourseName}}</td>
+    	<td>{{course.Credits}}</td>
+    </tr>
+{% endfor %} 
+</ul>

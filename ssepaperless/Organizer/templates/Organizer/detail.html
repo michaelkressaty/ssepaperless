@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<h1>{{ department.DepartmentName }}</h1>
+<h2>{{ advisor.AdvisorName }}</h2>
+<ul>
+<table style="width:100%">
+        <th>Student Name</th>
+        <th>Student ID</th>
+        <th>Semester Accepted</th>
+        <th>Approved Study Plan</th>
+        <th>Study Plan PDF</th>
+    </tr>
+	{% for student in advisor.student_set.all %}
+    <tr>
+    	<td><a href="/admin/Organizer/student/{{student.id}}/">{{student.StudentName}}</td>
+    	<td>{{student.StudentID}}</td>
+    	<td>{{student.SemesterAccepted}}</td>
+    	<td>{{student.StudyPlanApproved}}</td>
+    	<td><a href="/media/{{student.StudyPlanPDF}}/">{{student.StudyPlanPDF}}</td>
+    </tr>
+{% endfor %}
+</ul>
